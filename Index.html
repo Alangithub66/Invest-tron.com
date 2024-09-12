@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partículas Neon com Botão Animado e Vídeo</title>
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: black;
+            color: white;
+            height: 200vh; /* Dobro do comprimento da tela para permitir rolagem */
+            transition: background-color 1s;
+        }
+
+        .header-image {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 20px;
+            border: 5px solid white;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(calc(100vw * var(--x)), calc(100vh * var(--y)));
+            }
+            100% {
+                transform: translate(calc(100vw * var(--x-end)), calc(100vh * var(--y-end)));
+            }
+        }
+
+        /* Estilos para o vídeo */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px; /* Distância abaixo da imagem */
+            position: relative;
+        }
+
+        .video-container iframe {
+            width: 560px;
+            height: 315px; /* Aumentei a altura para não ficar achatado */
+            border-radius: 15px;
+            border: 5px solid transparent;
+            animation: neon 4s infinite; /* Animação das bordas */
+        }
+
+        @keyframes neon {
+            0%, 100% {
+                border-image: linear-gradient(to top, #00ff00, #00ff00 50%, #0000ff 50%, #0000ff) 1;
+            }
+            50% {
+                border-image: linear-gradient(to top, #0000ff, #0000ff 50%, #00ff00 50%, #00ff00) 1;
+            }
+        }
+
+        /* Botões de redes sociais */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px; /* Ajustado para deixar mais abaixo do vídeo */
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .social-button img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .social-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp {
+            background-color: transparent;
+            box-shadow: 0px 0px 15px 5px #00ff00;
+        }
+
+        .instagram {
+            background-color: transparent;
+            box-shadow: 0px 0px 15px 5px #ff007f;
+        }
+
+        .gmail {
+            background-color: transparent;
+            box-shadow: 0px 0px 15px 5px #888;
+            transition: box-shadow 1s ease;
+        }
+
+        .gmail:hover {
+            box-shadow: 0px 0px 15px 5px #00d1ff;
+        }
+
+        .arrow {
+            margin-left: 10px;
+            animation: moveArrow 1s infinite alternate;
+        }
+
+        @keyframes moveArrow {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Imagem no topo -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqCUKM3w3B2JSoOBZ0FCzlFOtWKXIqNDXJSROi_BDUvefjM4q6TEU1izm0&s=10" class="header-image" alt="Imagem de Cabeça">
+
+    <!-- Vídeo -->
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/GSKRkCK7GIs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Botões de Redes Sociais -->
+    <div class="buttons-container">
+        <!-- Botão do WhatsApp -->
+        <a href="https://wa.me/81989020449" class="social-button whatsapp" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE5Z8LnrPbQAu9KNjgl45aJWPlf89hXk5gXA&s" alt="WhatsApp">
+            WhatsApp
+            <span class="arrow">➜</span>
+        </a>
+
+        <!-- Botão do Instagram -->
+        <a href="https://www.instagram.com/investtrom.659748?igsh=Z2RlYm9ieGhwM2Iw" class="social-button instagram" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo7tLojlzkZz6Aw34kFcd8LOL6n0bSvjwgDPGMGDk7JXkNYSsMLUfhZJ6Y&s=10" alt="Instagram">
+            Instagram
+            <span class="arrow">➜</span>
+        </a>
+
+        <!-- Botão do Gmail -->
+        <a href="mailto:investtrompay@gmail.com" class="social-button gmail" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAz8L1atY9da-Vgdt-ISRjA8lJrZZcF1PIeLLIwIR-ZDzCxfC7elogwAc&s=10" alt="Gmail">
+            Gmail
+            <span class="arrow">➜</span>
+        </a>
+    </div>
+</body>
+</html>
